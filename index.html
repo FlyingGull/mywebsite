@@ -1,6 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+  // On va chercher tes 5 derniers dépôts sur GitHub
+  fetch('https://api.github.com/users/FlyingGull/repos?sort=updated&per_page=5')
+    .then(r => r.json())
+    .then(repos => {
+      let zone = document.getElementById('github-projets');
+      repos.forEach(projet => {
+        let bloc = document.createElement('div');
+        bloc.className = 'projet';
+        bloc.innerHTML = `
+          <h4><a href="https://github.com/FlyingGull/${projet.name}" target="_blank">${projet.name}</a></h4>
+          <p>${projet.description || 'Essai en cours'}</p>
+        `;
+        zone.appendChild(bloc);
+      });
+    })
+    .catch(() => {
+      // Si ça bug, on met un petit message
+      document.getElementById('github-projets').innerHTML = '<p>Liste temporaire – recruteurs, regardez mes liens GitHub !</p>';
+    });
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Florence - My Site</title>
@@ -96,6 +117,10 @@
     
     <h3>My professional values</h3>
     <p>Transparency, rigor, self-awareness, down-to-earth, efficiency</p>
+    <div id="github-projets" style="margin:20px 0;">
+  <!-- Les projets vont apparaître ici -->
+    </div>
 
 </body>
+
 </html>
