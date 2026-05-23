@@ -30,13 +30,16 @@
 </head>
 <body>
 
+    <!-- Scan line animation (appears on load, then disappears) -->
+    <div class="scan-overlay"></div>
+
     <!-- Language switcher -->
     <p class="lang-switch"><a href="index-fr.html" hreflang="fr">Français</a></p>
 
-    <h1>Hey, I'm Florence</h1>
+    <h1><span class="typewriter-text" data-text="Hey, I'm Florence"></span><span class="typewriter-cursor"></span></h1>
 
     <!-- Section 1: Skills / Interests -->
-    <section>
+    <section class="reveal">
         <h2>Skills &#47; Interests</h2>
 
         <h3>Technologies I'm learning</h3>
@@ -51,7 +54,7 @@
     </section>
 
     <!-- Section 2: Projects -->
-    <section>
+    <section class="reveal">
         <h2>Projects</h2>
 
         <h3>Featured work</h3>
@@ -62,7 +65,7 @@
     </section>
 
     <!-- Section 3: Background -->
-    <section>
+    <section class="reveal">
         <h2>Background</h2>
 
         <h3>Field of study</h3>
@@ -77,7 +80,7 @@
     </section>
 
     <!-- Section 4: Values -->
-    <section>
+    <section class="reveal">
         <h2>Values</h2>
 
         <h3>A quote that drives me</h3>
@@ -89,7 +92,7 @@
     </section>
 
     <!-- Section 5: Live GitHub projects -->
-    <section>
+    <section class="reveal">
         <h2>Latest on GitHub</h2>
         <div id="github-projets">
             <!-- Populated dynamically -->
@@ -97,7 +100,7 @@
     </section>
 
     <!-- Section 6: Contact -->
-    <section>
+    <section class="reveal">
         <h2>Contact</h2>
         <p>Available for collaboration — reach out anytime.</p>
 
@@ -114,6 +117,41 @@
             <button type="submit">Send</button>
         </form>
     </section>
+
+    <!-- ═══ Animations: typewriter + scroll reveal ═══ -->
+    <script>
+    (function() {
+        // Typewriter effect on h1
+        const el = document.querySelector('.typewriter-text');
+        const cursor = document.querySelector('.typewriter-cursor');
+        if (el && cursor) {
+            const text = el.getAttribute('data-text') || '';
+            let i = 0;
+            function type() {
+                if (i < text.length) {
+                    el.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(type, 60 + Math.random() * 40);
+                } else {
+                    cursor.style.display = 'none';
+                }
+            }
+            // Small delay so scanline starts first
+            setTimeout(type, 600);
+        }
+
+        // Scroll reveal — Intersection Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    })();
+    </script>
 
     <!-- GitHub repos fetch — at end of body, after target div -->
     <script>

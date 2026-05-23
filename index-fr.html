@@ -30,13 +30,16 @@
 </head>
 <body>
 
+    <!-- Animation de scan (apparaît au chargement, puis disparaît) -->
+    <div class="scan-overlay"></div>
+
     <!-- Sélecteur de langue -->
     <p class="lang-switch"><a href="index.html" hreflang="en">English</a></p>
 
-    <h1>Salut, je suis Florence</h1>
+    <h1><span class="typewriter-text" data-text="Salut, je suis Florence"></span><span class="typewriter-cursor"></span></h1>
 
     <!-- Section 1: Compétences / Intérêts -->
-    <section>
+    <section class="reveal">
         <h2>Compétences &#47; Intérêts</h2>
 
         <h3>Technologies que j'apprends</h3>
@@ -51,7 +54,7 @@
     </section>
 
     <!-- Section 2: Projets -->
-    <section>
+    <section class="reveal">
         <h2>Projets</h2>
 
         <h3>Travaux récents</h3>
@@ -62,7 +65,7 @@
     </section>
 
     <!-- Section 3: Parcours -->
-    <section>
+    <section class="reveal">
         <h2>Parcours</h2>
 
         <h3>Domaine d'études</h3>
@@ -77,7 +80,7 @@
     </section>
 
     <!-- Section 4: Valeurs -->
-    <section>
+    <section class="reveal">
         <h2>Valeurs</h2>
 
         <h3>Une citation qui m'inspire</h3>
@@ -89,7 +92,7 @@
     </section>
 
     <!-- Section 5: Projets GitHub en direct -->
-    <section>
+    <section class="reveal">
         <h2>Derniers projets sur GitHub</h2>
         <div id="github-projets">
             <!-- Rempli dynamiquement -->
@@ -97,7 +100,7 @@
     </section>
 
     <!-- Section 6: Contact -->
-    <section>
+    <section class="reveal">
         <h2>Contact</h2>
         <p>Disponible pour collaboration — n'hésitez pas à m'écrire.</p>
 
@@ -114,6 +117,41 @@
             <button type="submit">Envoyer</button>
         </form>
     </section>
+
+    <!-- ═══ Animations : machine à écrire + apparition au scroll ═══ -->
+    <script>
+    (function() {
+        // Effet machine à écrire sur le h1
+        const el = document.querySelector('.typewriter-text');
+        const cursor = document.querySelector('.typewriter-cursor');
+        if (el && cursor) {
+            const text = el.getAttribute('data-text') || '';
+            let i = 0;
+            function type() {
+                if (i < text.length) {
+                    el.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(type, 60 + Math.random() * 40);
+                } else {
+                    cursor.style.display = 'none';
+                }
+            }
+            // Petit délai pour que la ligne de scan passe d'abord
+            setTimeout(type, 600);
+        }
+
+        // Apparition au scroll — Intersection Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    })();
+    </script>
 
     <!-- GitHub repos fetch — à la fin du body, après la div cible -->
     <script>
