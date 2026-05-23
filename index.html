@@ -1,137 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script>
-  // On va chercher tes 5 derniers dépôts sur GitHub
-  fetch('https://api.github.com/users/FlyingGull/repos?sort=updated&per_page=5')
-    .then(r => r.json())
-    .then(repos => {
-      let zone = document.getElementById('github-projets');
-      repos.forEach(projet => {
-        let bloc = document.createElement('div');
-        bloc.className = 'projet';
-        bloc.innerHTML = `
-          <h4><a href="https://github.com/FlyingGull/${projet.name}" target="_blank">${projet.name}</a></h4>
-          <p>${projet.description || 'Essai en cours'}</p>
-        `;
-        zone.appendChild(bloc);
-      });
-    })
-    .catch(() => {
-      // Si ça bug, on met un petit message
-      document.getElementById('github-projets').innerHTML = '<p>Liste temporaire – recruteurs, regardez mes liens GitHub !</p>';
-    });
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Florence - My Site</title>
+    <title>Florence — Electrical Engineer &amp; AI Tinkerer</title>
+    <meta name="description" content="Florence — Electrical engineer exploring AI, local LLMs, and power-grid optimization.">
+
+    <!-- Open Graph / social preview -->
+    <meta property="og:title" content="Florence — Electrical Engineer &amp; AI Tinkerer">
+    <meta property="og:description" content="Electrical engineer exploring AI, local LLMs, and power-grid optimization.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://flyinggull.github.io/mywebsite/">
+
+    <!-- hreflang for search engines -->
+    <link rel="alternate" hreflang="en" href="https://flyinggull.github.io/mywebsite/index.html">
+    <link rel="alternate" hreflang="fr" href="https://flyinggull.github.io/mywebsite/index-fr.html">
+    <link rel="canonical" href="https://flyinggull.github.io/mywebsite/index.html">
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" sizes="any">
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Rajdhani', sans-serif;
-            font-size: 18px;
-            line-height: 1.6;
-            background-color: #0a0a0f;
-            color: #e0e0e0;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-        h1 {
-            font-family: 'Orbitron', sans-serif;
-            color: #00f0ff;
-            text-shadow: 0 0 10px #00f0ff;
-        }
-        h2 {
-            font-family: 'Orbitron', sans-serif;
-            color: #bf00ff;
-            text-shadow: 0 0 8px #bf00ff;
-        }
-        h3 {
-            font-family: 'Orbitron', sans-serif;
-            color: #00ff88;
-        }
-        a {
-            color: #00f0ff;
-        }
-    </style>
+
+    <!-- Shared stylesheet -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+    <!-- Language switcher -->
+    <p class="lang-switch"><a href="index-fr.html" hreflang="fr">Français</a></p>
+
     <h1>Hey, I'm Florence</h1>
-    
-    <!-- Language link -->
-    <p><a href="index-fr.html">Version française</a></p>
 
     <!-- Section 1: Skills / Interests -->
-    <h2>Skills / Interests</h2>
-    
-    <h3>Technologies I'm learning</h3>
-    <p>Artificial Intelligence: Local AI, Machine Learning, Code with AI, Generate images with AI, Electrical Network Optimization, Docker Desktop, AI in the terminal, etc.</p>
-    <img src="watermarked-00008-2970267479.png" alt="What I'm learning" width="400">
-    
-    <h3>Areas I'm passionate about</h3>
-    <p>Artificial Intelligence, Quantum Science, Electrical Network Optimization</p>
-    
-    <h3>Tools I master</h3>
-    <p>Gemini-CLI, Droid, LM Studio, Stability Matrix, WhisperWriter, etc.</p>
+    <section>
+        <h2>Skills &#47; Interests</h2>
+
+        <h3>Technologies I'm learning</h3>
+        <p>Artificial Intelligence: local AI, machine learning, coding with AI, AI image generation, electrical network optimization, Docker, terminal-based AI agents.</p>
+        <img src="learning-ai.png" alt="AI and technology exploration" width="400">
+
+        <h3>Areas I'm passionate about</h3>
+        <p>Artificial Intelligence, quantum science, electrical network optimization</p>
+
+        <h3>Tools I use</h3>
+        <p>Gemini CLI, LM Studio, Stability Matrix, Hermes Agent, Docker, WhisperWriter</p>
+    </section>
 
     <!-- Section 2: Projects -->
-    <h2>Projects</h2>
-    
-    <h3>Personal projects</h3>
-    <p>My Web Page, Continuous Learning in AI</p>
-    
-    <h3>Experiments</h3>
-    <p>Electrical Networks Optimization with AI, etc.</p>
+    <section>
+        <h2>Projects</h2>
 
-    <!-- Section 3: General background -->
-    <h2>General background</h2>
-    
-    <h3>Field of study</h3>
-    <p>Electrical Engineering</p>
-    <img src="watermarked-00021-1902809194.png" alt="What I studied and worked in" width="400">
-    
-    <h3>Professional sector</h3>
-    <p>Electrical Power Engineering</p>
-    
-    <h3>Years of experience</h3>
-    <p>28.5 years of Electrical Engineering experience</p>
+        <h3>Featured work</h3>
+        <p>I build tools at the intersection of electrical engineering and AI — from power-grid optimization experiments to AI-assisted development workflows. Check out the live feed below for my latest open-source work on GitHub.</p>
 
-    <!-- Section 4: Contact -->
-    <h2>Contact</h2>
-    
-    <p>Available for collaboration</p>
+        <h3>Experiments</h3>
+        <p>Electrical network optimization with AI, multi-agent coding workflows, local LLM deployment</p>
+    </section>
 
-    <!-- Section 5: Quotes / Values -->
-    <h2>Quotes / Values</h2>
-    
-    <h3>A quote that inspires me</h3>
-    <p>Transparency earns client trust</p>
-    <img src="watermarked-00050-4037120184.png" alt="What I believe in" width="400">
-    
-    <h3>My professional values</h3>
-    <p>Transparency, rigor, self-awareness, down-to-earth, efficiency</p>
-    <div id="github-projets" style="margin:20px 0;">
-  <!-- Les projets vont apparaître ici -->
-    </div>
+    <!-- Section 3: Background -->
+    <section>
+        <h2>Background</h2>
 
-    <form action="https://formspree.io/f/mjgewrld" method="POST">
-        <input type="text" name="nom" placeholder="Ton nom" required><br>
-        <input type="email" name="mail" placeholder="Ton email" required><br>
-        <textarea name="message" placeholder="Pourquoi tu m’écris ?" rows="4"></textarea><br>
-        <button type="submit">Envoyer</button>
-</form>
+        <h3>Field of study</h3>
+        <p>Electrical Engineering</p>
+        <img src="electrical-engineering.png" alt="Electrical engineering studies and career" width="400">
+
+        <h3>Professional sector</h3>
+        <p>Electrical Power Engineering</p>
+
+        <h3>Experience</h3>
+        <p>Senior electrical engineer with deep industry experience</p>
+    </section>
+
+    <!-- Section 4: Values -->
+    <section>
+        <h2>Values</h2>
+
+        <h3>A quote that drives me</h3>
+        <p>Transparency earns client trust</p>
+        <img src="values.png" alt="Professional values and beliefs" width="400">
+
+        <h3>My professional values</h3>
+        <p>Transparency, rigor, self-awareness, pragmatism, efficiency</p>
+    </section>
+
+    <!-- Section 5: Live GitHub projects -->
+    <section>
+        <h2>Latest on GitHub</h2>
+        <div id="github-projets">
+            <!-- Populated dynamically -->
+        </div>
+    </section>
+
+    <!-- Section 6: Contact -->
+    <section>
+        <h2>Contact</h2>
+        <p>Available for collaboration — reach out anytime.</p>
+
+        <form action="https://formspree.io/f/mjgewrld" method="POST">
+            <label for="form-name">Name</label>
+            <input type="text" id="form-name" name="name" placeholder="Your name" required>
+
+            <label for="form-email">Email</label>
+            <input type="email" id="form-email" name="email" placeholder="Your email" required>
+
+            <label for="form-message">Message</label>
+            <textarea id="form-message" name="message" placeholder="What brings you here?" rows="4" required></textarea>
+
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <!-- GitHub repos fetch — at end of body, after target div -->
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        fetch('https://api.github.com/users/FlyingGull/repos?sort=updated&per_page=5')
+            .then(r => r.json())
+            .then(repos => {
+                let zone = document.getElementById('github-projets');
+                repos.forEach(projet => {
+                    let bloc = document.createElement('div');
+                    bloc.className = 'projet';
+                    bloc.innerHTML = `
+                        <h4><a href="https://github.com/FlyingGull/${projet.name}" target="_blank" rel="noopener">${projet.name}</a></h4>
+                        <p>${projet.description || 'Work in progress'}</p>
+                    `;
+                    zone.appendChild(bloc);
+                });
+            })
+            .catch(() => {
+                document.getElementById('github-projets').innerHTML =
+                    '<p>Could not load projects — check out <a href="https://github.com/FlyingGull" target="_blank" rel="noopener">my GitHub</a> directly.</p>';
+            });
+    });
+    </script>
 
 </body>
-
 </html>
-
-
-
-

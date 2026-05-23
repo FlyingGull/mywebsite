@@ -1,0 +1,143 @@
+/* === mywebsite — shared styles (EN + FR) === */
+
+body {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    background-color: #0a0a0f;
+    color: #e0e0e0;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+h1 {
+    font-family: 'Orbitron', sans-serif;
+    color: #00f0ff;
+    text-shadow: 0 0 10px #00f0ff;
+}
+
+h2 {
+    font-family: 'Orbitron', sans-serif;
+    color: #bf00ff;
+    text-shadow: 0 0 8px #bf00ff;
+}
+
+h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: #00ff88;
+}
+
+a {
+    color: #00f0ff;
+}
+
+/* === GitHub projects list === */
+#github-projets {
+    margin: 20px 0;
+}
+
+#github-projets h3 {
+    color: #bf00ff;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.projet {
+    background: #111118;
+    border-left: 3px solid #00f0ff;
+    padding: 10px 15px;
+    margin: 10px 0;
+    border-radius: 4px;
+}
+
+.projet h4 {
+    margin: 0 0 5px 0;
+}
+
+.projet p {
+    margin: 0;
+    color: #a0a0b0;
+    font-size: 16px;
+}
+
+/* === Contact form === */
+form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 500px;
+}
+
+form label {
+    color: #00ff88;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+form input,
+form textarea {
+    background: #111118;
+    border: 1px solid #333;
+    color: #e0e0e0;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 4px;
+    transition: border-color 0.2s;
+}
+
+form input:focus,
+form textarea:focus {
+    border-color: #00f0ff;
+    outline: none;
+}
+
+form button {
+    background: #00f0ff;
+    color: #0a0a0f;
+    border: none;
+    padding: 12px 24px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: box-shadow 0.2s;
+}
+
+form button:hover {
+    box-shadow: 0 0 15px #00f0ff;
+}
+
+/* === Language switcher === */
+.lang-switch {
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+.lang-switch a {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* === Section spacing === */
+section {
+    margin-bottom: 30px;
+}
+
+/* === Accessibility: reduce motion === */
+@media (prefers-reduced-motion: reduce) {
+    h1, h2 {
+        text-shadow: none;
+    }
+}
